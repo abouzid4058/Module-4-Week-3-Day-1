@@ -1,0 +1,37 @@
+<%- include('header'); %>
+<%- include('nav'); %>
+<main>
+<h3>Sign Up</h3>
+
+<% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+  <div id="error-message">
+    <ul>
+      <% errors.forEach(function(error) { %>
+        <li><%= error %></li>
+      <% }); %>
+    </ul>
+  </div>
+<% } %>
+
+<form action="/register" method="POST" novalidate>
+    <div class="field">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Min 4 chars, letters/numbers/_">
+      <small class="hint">At least 4 characters. Letters, numbers, and underscores only.</small>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Min 8 chars">
+      <small class="hint">Min 8 chars, include uppercase, number &amp; special char (!@#$%^&amp;*)</small>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="you@example.com">
+    </div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input type="text" name="phone" id="phone" placeholder="Phone number">
+    </div>
+    <button class="btn btn-success">Submit</button>
+</form>
+</main>
